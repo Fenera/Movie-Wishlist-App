@@ -1,3 +1,7 @@
+# Movie Wishlist Web App
+
+## Project Structure
+
 /movie-wishlist-app
 │
 ├── /app
