@@ -6,6 +6,7 @@ views = Blueprint('views', __name__)
 
 #home page
 @views.route('/', methods= ['POST', 'GET'])
+@login_required
 # home page not accessible if logged out
 def home():
 
@@ -13,5 +14,6 @@ def home():
 
 # wishlist
 @views.route('/wishlist', methods = ['POST', 'GET'])
+@login_required
 def wishlist():
     return render_template('wishlist.html')

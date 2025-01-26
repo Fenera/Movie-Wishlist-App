@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
+
 
 DB_NAME = "database.db"
 
@@ -26,6 +27,7 @@ def create_app():
     # initialize login manager
     login_manager = LoginManager()
     login_manager.init_app(app)
+    login_manager.login_view = "auth.login"
 
     # import User here to avoid circular import
     from .models import User
@@ -35,6 +37,11 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
+    @app.context_processor
+    def inject_user(): # makes current_user accessible as user in templates
+        from flask_login import current_user
+        return {"user": current_user}
     
     return app
 
