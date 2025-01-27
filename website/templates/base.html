@@ -34,6 +34,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/wishlist">Wishlist</a>
             </li>
+            <li class="nav_item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
             {%else%}
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
@@ -57,7 +60,7 @@
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
-          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
