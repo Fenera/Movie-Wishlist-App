@@ -2,7 +2,15 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h1>Hello, {{user.username}}</h1>
+<h5>Hello, {{user.username}}</h5>
+<br>
+<h1>Trending Movies and TV Shows</h1>
+<div id="movies"></div>
+<script>
+    <!--inject api key into js script-->
+    const API_KEY = "{{api_key}}";
+</script>
+<script src="{{url_for('static', filename='script.js')}}"></script>
 {% else %}
 <h1 id = register-first>Please sign up to continue</h1>
 {% endif %}
