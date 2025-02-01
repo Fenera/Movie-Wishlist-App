@@ -1,3 +1,6 @@
 startbootstrap-bare-gh-pages/
 instance/
 __pycache__/
+testing
+requests
+.env
