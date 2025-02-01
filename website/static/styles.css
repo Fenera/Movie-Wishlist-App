@@ -1,15 +1,27 @@
-.search_bar {
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  width: 30%;
+body {
+  font-family: Courier, sans-serif;
+  text-align: center;
+  font-size: 32px;
+}
+.card {
+  background-color: #032541;
+}
+#movies {
+  display: grid;
+  gap: 50px 50px;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
 }
 
-body{
-  margin: 0;
-  padding: 0;
+.movie_item {
+  margin: 1rem;
+  text-align: center;
+  color: white;
+  font-size: 25px;
 }
-
-.register_first{
-  color:crimson;
+.title {
+  padding-top: 16px;
+}
+.movie_img_rounded {
+  border-radius: 3rem;
 }
