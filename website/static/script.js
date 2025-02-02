@@ -24,7 +24,7 @@ async function fetchMovies() {
 }
 
 function createMovieCard(media) {
-    const { title, name, backdrop_path } = media; // destructure
+    const { title, backdrop_path, vote_average } = media; 
 
     // new div element for the movie card
     const movieCard = document.createElement("div");
@@ -32,10 +32,33 @@ function createMovieCard(media) {
     // Add the class 'movie_item' to style the movie card
     movieCard.classList.add("movie_item");
 
-    movieCard.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" class="movie_img_rounded">
-        <div class="title">${title || name}</div>
-    `;
+
+    // title and rating container
+    const movieInfo = document.createElement("div");
+    movieInfo.classList.add("movie_info");
+
+    // create title element
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = title || "Untitled";
+
+    const ratingDiv = document.createElement("div");
+    ratingDiv.textContent = `⭐ ${vote_average.toFixed(1)} / 10`;
+
+    // create img element
+    const img = document.createElement("img");
+    // reason for two sizes is to avoid "img size not supported" error(https://www.themoviedb.org/talk/5a6986550e0a260d6400d6c0)
+    img.src = backdrop_path 
+    ? `https://image.tmdb.org/t/p/original/${backdrop_path}` // higher quality image
+    : "https://via.placeholder.com/w780?text=No+Image"; // fallback to this size if other doesn't work
+    img.classList.add("movie_img_rounded");
+
+    // append to parent div
+
+    movieInfo.appendChild(titleDiv);
+    movieInfo.appendChild(ratingDiv);
+
+    movieCard.appendChild(img);
+    movieCard.appendChild(movieInfo)
 
     return movieCard;
 }
