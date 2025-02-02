@@ -2,7 +2,6 @@ api_key = API_KEY
 
 const apiURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${api_key}`;
 
-
 const moviesContainer = document.getElementById("movies");
 
 async function fetchMovies() {
@@ -32,7 +31,7 @@ function createMovieCard(media) {
     // Add the class 'movie_item' to style the movie card
     movieCard.classList.add("movie_item");
 
-
+    
     // title and rating container
     const movieInfo = document.createElement("div");
     movieInfo.classList.add("movie_info");
@@ -44,6 +43,21 @@ function createMovieCard(media) {
     const ratingDiv = document.createElement("div");
     ratingDiv.textContent = `⭐ ${vote_average.toFixed(1)} / 10`;
 
+    // add to wishlist 
+    const wishlist = document.createElement("button");
+    wishlist.classList.add("wishlist_button");
+    wishlist.textContent = "Add to wishlist";
+
+    // action listener
+    wishlist.addEventListener('click', () => {
+        if(wishlist.textContent == "Add to wishlist"){
+            wishlist.textContent = "Added!"
+            
+        }
+        else{
+            wishlist.textContent="Add to wishlist";
+        }
+    });
     // create img element
     const img = document.createElement("img");
     // reason for two sizes is to avoid "img size not supported" error(https://www.themoviedb.org/talk/5a6986550e0a260d6400d6c0)
@@ -56,9 +70,11 @@ function createMovieCard(media) {
 
     movieInfo.appendChild(titleDiv);
     movieInfo.appendChild(ratingDiv);
+    movieInfo.appendChild(wishlist);    
+    
 
     movieCard.appendChild(img);
-    movieCard.appendChild(movieInfo)
+    movieCard.appendChild(movieInfo);
 
     return movieCard;
 }
