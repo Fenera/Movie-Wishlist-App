@@ -51,7 +51,25 @@ body {
   border-radius: 1rem;
 }
 
+.wishlist_button{
+  display:inline;
+  outline:0;
+  border:none;
+  cursor:pointer;
+  font-weight: 600;
+  border-radius: 4px; 
+  font-size: 13px;
+  height: 30px;
+  background-color: #fe7f7f;
+  color:white;
+  padding: 0 20px;
+}
+.wishlist_button:hover{
+  background-color: #fd3434;
+}
+
 .movie_item:hover .movie_info {
+  /*movie info only visible when hovered over movie_item*/
   opacity: 1;
 }
 
