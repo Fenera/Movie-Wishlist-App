@@ -1,8 +1,8 @@
 To use this application:
 1. Generate an API key from TMDB(https://developer.themoviedb.org/docs/getting-started)
-2. Create a .env file in the same directory as main
+2. Create a .env file in the same directory as main.py
 3. Add the API key to the .env file using the variable API_KEY(i.e API_KEY = 1eq27nu3i1wsdioq213wd)
-4. In terminal, type "py main.py"
+4. Run main.py
 ```markdown
 # Movie Wishlist Web App(in-progress)
 
