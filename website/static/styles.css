@@ -51,21 +51,56 @@ body {
   border-radius: 1rem;
 }
 
-.wishlist_button{
-  display:inline;
-  outline:0;
-  border:none;
-  cursor:pointer;
+.wishlist_button {
+  display: inline;
+  outline: 0;
+  border: none;
+  cursor: pointer;
   font-weight: 600;
-  border-radius: 4px; 
+  border-radius: 4px;
   font-size: 13px;
   height: 30px;
   background-color: #fe7f7f;
-  color:white;
+  color: white;
   padding: 0 20px;
 }
-.wishlist_button:hover{
+.wishlist_button:hover {
   background-color: #fd3434;
+}
+
+.learnMore_button {
+  position: absolute;
+  outline: 0;
+  border: 1px solid;
+  border-color: aliceblue;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4em;
+  margin-top: 4px;
+  margin-right: 4px;
+  top: 0;
+  right: 0;
+  font-size: 13px;
+  height: 30px;
+  background-color: #000000;
+  color: white;
+  padding: 0 20px;
+  opacity: 0;
+}
+
+.genre_type {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  opacity:0;
+  padding: 5px 10px; 
+  background-color: rgba(0, 0, 0, 0.2); 
+  color: white; 
+  font-size: 14px; 
+  border-radius: 5em; 
+  margin: 5px; 
+  text-transform: capitalize; 
+  font-weight: 500; 
 }
 
 .movie_item:hover .movie_info {
@@ -73,6 +108,14 @@ body {
   opacity: 1;
 }
 
+.movie_item:hover .learnMore_button {
+  /*button visible*/
+  opacity: 1;
+}
+
+.movie_item:hover .genre_type{
+  opacity:1;
+}
 .movie_img_rounded {
   width: 320px;
   height: 220px;
