@@ -23,10 +23,31 @@ async function fetchMovies() {
     }
 }
 
+// this is to ensure that the html elements are loaded before scripts(to avoid errors)
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("info_modal");
+    const modal_content = document.getElementById("modal-content");
+    const closeModal = document.querySelector(".close-modal");
+
+    // Initially hide modal
+    modal.style.display = "none";
+
+    // Close modal when clicking the close button
+    closeModal.addEventListener("click", function(){
+        modal.style.display = "none";
+        closeModal.style.display = "none";
+    });
+
+    // Close modal when clicking outside the content
+    window.addEventListener("click", function(event){
+        if(event.target === modal){
+            modal.style.display = "none";
+        }
+    });
+});
+
 function createMovieCard(media) {
     const { title, backdrop_path, vote_average, genre_ids} = media; 
-    createInfoPage(media);
-
     // new div element for the movie card
     const movieCard = document.createElement("div");
 
@@ -54,9 +75,17 @@ function createMovieCard(media) {
     const learnMore = document.createElement("button");
     learnMore.classList.add("learnMore_button");
     learnMore.textContent = "Learn More";
+    
+     // Open modal on Learn More click
+    learnMore.addEventListener("click", function() {
+    const modal = document.getElementById("info_modal");
+    const closeModal = document.querySelector(".close-modal");
+    modal.style.display = "flex";
+    closeModal.style.display = "block";
 
+    });
 
-    // monitor clicks
+    // monitor clicks for add to wishlist button
     wishlist.addEventListener('click', () => {
         if(wishlist.textContent == "Add to wishlist"){
             wishlist.textContent = "Added!";
@@ -67,13 +96,7 @@ function createMovieCard(media) {
         }
     });
 
-    //create function for MoreInfo
-    function createInfoPage(media){
-        //Add something
-    }
-
-
-    // create img element
+    // create img element for movie card image
     const img = document.createElement("img");
     // reason for two sizes is to avoid "img size not supported" error(https://www.themoviedb.org/talk/5a6986550e0a260d6400d6c0)
     img.src = backdrop_path 
@@ -82,9 +105,7 @@ function createMovieCard(media) {
     img.classList.add("movie_img_rounded");
 
 
-        // genre
-
-    
+    // genre
     const genreType = document.createElement("div");
     genreType.classList.add("genre_type");
 
@@ -137,5 +158,6 @@ function createMovieCard(media) {
 
     return movieCard;
 }
+
 
 fetchMovies();
