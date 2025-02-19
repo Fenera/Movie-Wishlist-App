@@ -92,15 +92,15 @@ body {
   position: absolute;
   left: 4px;
   top: 4px;
-  opacity:0;
-  padding: 5px 10px; 
-  background-color: rgba(0, 0, 0, 0.2); 
-  color: white; 
-  font-size: 14px; 
-  border-radius: 5em; 
-  margin: 5px; 
-  text-transform: capitalize; 
-  font-weight: 500; 
+  opacity: 0;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 14px;
+  border-radius: 5em;
+  margin: 5px;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
 .movie_item:hover .movie_info {
@@ -113,8 +113,8 @@ body {
   opacity: 1;
 }
 
-.movie_item:hover .genre_type{
-  opacity:1;
+.movie_item:hover .genre_type {
+  opacity: 1;
 }
 .movie_img_rounded {
   width: 320px;
@@ -123,3 +123,4 @@ body {
   display: block;
   border-radius: 1rem;
 }
+
